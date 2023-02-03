@@ -37,7 +37,7 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'ALPHALABS_UTILITY_PACK_VERSION', '1.0.0' );
 define( 'ALPHALABS_UTILITY_PACK_SLUG', 'alphalabs-utility-pack' );
-define( 'ALPHALABS_UTILITY_PACK_PLUGIN_PATH', WPMU_PLUGIN_DIR . '/'. ALPHALABS_UTILITY_PACK_SLUG . '/' );
+define( 'ALPHALABS_UTILITY_PACK_PLUGIN_PATH', dirname( __FILE__ ) . '/' );
 
 /**
  * The code that runs during plugin activation.
