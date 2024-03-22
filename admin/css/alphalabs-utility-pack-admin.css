@@ -2,3 +2,10 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+ .alup-table textarea {
+    max-width: 100%;
+    width: 350px;
+    height: 150px;
+    border-radius: 4px;
+ }
