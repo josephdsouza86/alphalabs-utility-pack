@@ -29,7 +29,7 @@ class CustomPostType {
             'singular_name'         => _x($singular, `{$singular} Singular Name`, $textdomain),
             'menu_name'             => __($plural, $textdomain),
             'name_admin_bar'        => __($singular, $textdomain),
-            'archives'              => __('All ' . $plural, $textdomain),
+            'archives'              => __($plural, $textdomain),
             'attributes'            => __($singular . ' Attributes', $textdomain),
             'parent_item_colon'     => __('Parent ' . $singular . ':', $textdomain),
             'all_items'             => __('All ' . $plural, $textdomain),

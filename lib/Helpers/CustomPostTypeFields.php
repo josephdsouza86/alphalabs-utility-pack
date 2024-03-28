@@ -23,7 +23,9 @@ class CustomPostTypeFields {
             $this->metaBoxId,
             $this->metaBoxTitle,
             array($this, 'renderMetaBox'),
-            $this->postType
+            $this->postType,
+            'advanced', // Context
+            'high'      // Priority
         );
     }
 

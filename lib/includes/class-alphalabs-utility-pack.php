@@ -100,6 +100,11 @@ class Alphalabs_Utility_Pack {
 	private function load_dependencies() {
 
 		/**
+		 * Allow Updates from GitHub
+		 */
+		require_once ALPHALABS_UTILITY_PACK_PLUGIN_PATH . 'updates/updater.php';
+
+		/**
 		 * Allow our local classes to be automatically included when requested
 		 */
 		$this->init_local_auto_loader();
@@ -172,6 +177,7 @@ class Alphalabs_Utility_Pack {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init', $plugin_admin, 'init_customiser');
 
 	}
 

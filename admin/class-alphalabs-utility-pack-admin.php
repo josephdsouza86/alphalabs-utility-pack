@@ -100,4 +100,13 @@ class Alphalabs_Utility_Pack_Admin {
 
 	}
 
+	/**
+	 * Initialize the customiser.
+	 *
+	 * @since    1.0.0
+	 */
+	public function init_customiser() {
+		$customise = new AlphaLabsUtilityPack\Admin\Customise();
+	}
+
 }
