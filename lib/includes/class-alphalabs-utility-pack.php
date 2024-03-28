@@ -100,11 +100,6 @@ class Alphalabs_Utility_Pack {
 	private function load_dependencies() {
 
 		/**
-		 * Allow Updates from GitHub
-		 */
-		require_once ALPHALABS_UTILITY_PACK_PLUGIN_PATH . 'updates/updater.php';
-
-		/**
 		 * Allow our local classes to be automatically included when requested
 		 */
 		$this->init_local_auto_loader();
