@@ -25,7 +25,7 @@
  * Domain Path:       /languages
  * 
  * GitHub Plugin URI: https://github.com/josephdsouza86/alphalabs-utility-pack
- * GitHub Branch:     main
+ * GitHub Branch:     master
  */
 
 // If this file is called directly, abort.
