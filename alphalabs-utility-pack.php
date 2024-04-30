@@ -23,6 +23,9 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       alphalabs-utility-pack
  * Domain Path:       /languages
+ * 
+ * GitHub Plugin URI: https://github.com/josephdsouza86/alphalabs-utility-pack
+ * GitHub Branch:     main
  */
 
 // If this file is called directly, abort.
