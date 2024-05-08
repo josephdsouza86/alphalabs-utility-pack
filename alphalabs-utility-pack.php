@@ -16,7 +16,7 @@
  * Plugin Name:       Utility Pack
  * Plugin URI:        https://alphalabs.net
  * Description:       This plugin contains common utility code and functionality that is often required to support projects developed by Alpha Labs.
- * Version:           1.0.2.2
+ * Version:           1.0.2.3
  * Author:            Alpha Labs
  * Author URI:        https://alphalabs.net
  * License:           GPL-2.0+
