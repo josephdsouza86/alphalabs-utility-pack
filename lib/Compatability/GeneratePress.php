@@ -14,7 +14,7 @@ class GeneratePress {
     function generate_element_display( $display, $element_id ) {
         if ( class_exists( 'UAGB_Post_Assets' ) && $display ) {
             // Create Instance. Pass the Post ID.
-            $post_assets_instance = new UAGB_Post_Assets( $element_id );
+            $post_assets_instance = new \UAGB_Post_Assets( $element_id );
 
             // Enqueue the Assets.
             $post_assets_instance->enqueue_scripts();
