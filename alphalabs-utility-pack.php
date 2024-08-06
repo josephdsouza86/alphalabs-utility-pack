@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://alphalabs.net
- * @since             1.0.0
+ * @since             1.0.2.6
  * @package           Alphalabs_Utility_Pack
  *
  * @wordpress-plugin
  * Plugin Name:       Utility Pack
  * Plugin URI:        https://alphalabs.net
  * Description:       This plugin contains common utility code and functionality that is often required to support projects developed by Alpha Labs.
- * Version:           1.0.2.5
+ * Version:           1.0.2.6
  * Author:            Alpha Labs
  * Author URI:        https://alphalabs.net
  * License:           GPL-2.0+
@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ALPHALABS_UTILITY_PACK_VERSION', '1.0.2.5' );
+define( 'ALPHALABS_UTILITY_PACK_VERSION', '1.0.2.6' );
 define( 'ALPHALABS_UTILITY_PACK_SLUG', 'alphalabs-utility-pack' );
 define( 'ALPHALABS_UTILITY_PACK_PLUGIN_PATH', dirname( __FILE__ ) . '/' );
 

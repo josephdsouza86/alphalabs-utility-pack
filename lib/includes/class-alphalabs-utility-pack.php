@@ -129,6 +129,12 @@ class Alphalabs_Utility_Pack {
 
 		$this->loader = new Alphalabs_Utility_Pack_Loader();
 
+		$this->init_global_load();
+	}
+
+	private function init_global_load () { 
+		new \AlphaLabsUtilityPack\Compatability\Astra();
+		new \AlphaLabsUtilityPack\Compatability\GeneratePress();
 	}
 
 	/**

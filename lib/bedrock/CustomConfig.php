@@ -12,13 +12,18 @@ class CustomConfig {
         'AL4_AS3CF_SECRET'
     ];
 
+    private $common_env_keys = [
+        'WPLANG'
+    ];
+
 	public function __construct() {
         // Define WP hooks
     }
 
     public function load () {
         // Load custom env settings
-        $this->load_custom_env();
+        $this->load_env_by_keys( $this->custom_env_keys );
+        $this->load_env_by_keys( $this->common_env_keys );
 
         // Load config settings
         $this->remote_debug();
@@ -26,10 +31,10 @@ class CustomConfig {
     }
 
     /**
-     * Load up custom env key names and values
+     * Load up env values by key names
      */
-    private function load_custom_env () {
-        foreach ($this->custom_env_keys as $key) {            
+    private function load_env_by_keys ( $keys ) {
+        foreach ($keys as $key) {            
             Config::define( $key, env( $key ) );            
         }
     }

@@ -4,15 +4,31 @@ namespace AlphaLabsUtilityPack\Admin;
 
 class Customise {
     public function __construct() {
-        add_action ( 'admin_menu', array($this, 'add_reusable_blocks_admin_menu_item') );        
+        add_action( 'admin_init', array( $this, 'disable_comments_post_types_support' ) );
+        add_action( 'admin_menu', array( $this, 'disable_comments_admin_menu' ) );
+        add_action( 'wp_before_admin_bar_render', array( $this, 'disable_comments_admin_bar_render' ) );
+
     }
 
-    function add_reusable_blocks_admin_menu_item() {
-        add_theme_page( 
-            'Reusable Blocks', // Page title
-            'Reusable Blocks', // Menu title
-            'edit_posts',      // Capability required to see the link
-            'edit.php?post_type=wp_block' // The 'slug' - file to display when clicking the link
-        );
+    // Disable comments
+    function disable_comments_post_types_support() {
+        $post_types = get_post_types();
+        foreach ( $post_types as $post_type ) {
+            if ( post_type_supports( $post_type, 'comments' ) ) {
+                remove_post_type_support( $post_type, 'comments' );
+                remove_post_type_support( $post_type, 'trackbacks' );
+            }
+        }
+    }
+
+    // Remove comments from admin bar
+    function disable_comments_admin_bar_render() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu( 'comments' );
+    }
+
+    // Remove comments from menu
+    function disable_comments_admin_menu() {
+        remove_menu_page( 'edit-comments.php' );
     }
 }
