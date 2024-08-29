@@ -19,9 +19,10 @@ class Buttons {
                     button.addEventListener('click', function() {
                         var href = button.getAttribute('href');
                         var eventLabel = href.startsWith('tel:') ? 'Phone' : 'WhatsApp';
-                        gtag('event', 'click', {
-                            'event_category': 'Lead',
-                            'event_label': eventLabel + ' Click'
+                        gtag('event', eventLabel.toLowerCase() + '_click', {
+                            'event_category': eventLabel + ' Engagement',
+                            'event_action': 'Click',
+                            'event_label': eventLabel + ' Button Click'
                         });
                     });
                 });
