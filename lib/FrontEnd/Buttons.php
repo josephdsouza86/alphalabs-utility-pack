@@ -14,7 +14,7 @@ class Buttons {
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof gtag === 'function') {
-                var buttons = document.querySelectorAll('a[href^="tel:"], a[href*="api.whatsapp.com"],a[href^="mailto"]');
+                var buttons = document.querySelectorAll('a[href^="tel:"],a[href*="api.whatsapp.com"],a[href*="//meetings"],a[href*="calendly.com"],a[href^="mailto"]');
                 buttons.forEach(function(button) {
                     button.addEventListener('click', function() {
                         var href = button.getAttribute('href');
@@ -26,6 +26,8 @@ class Buttons {
                             eventLabel = 'WhatsApp';
                         } else if (href.indexOf('mailto') !== -1) {
                             eventLabel = 'Email';
+                        } else if (href.indexOf('meetings') !== -1 || href.indexOf('calendly.com') !== -1) {
+                            eventLabel = 'Meeting';
                         }
 
                         gtag('event', eventLabel.toLowerCase() + '_click', {
