@@ -135,6 +135,7 @@ class Alphalabs_Utility_Pack {
 	private function init_global_load () { 
 		new \AlphaLabsUtilityPack\Compatability\Astra();
 		new \AlphaLabsUtilityPack\Compatability\GeneratePress();
+		new \AlphaLabsUtilityPack\Admin\ExceptionHandler();
 	}
 
 	/**
