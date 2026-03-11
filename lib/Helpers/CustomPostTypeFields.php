@@ -30,7 +30,7 @@ class CustomPostTypeFields {
     }
 
     public function renderMetaBox($post) {
-        wp_nonce_field(basename(__FILE__), $this->metaBoxId . '_nonce');
+        wp_nonce_field('save_' . $this->metaBoxId, $this->metaBoxId . '_nonce');
         $storedMeta = get_post_meta($post->ID);
 
         echo '<div><table class="form-table alup-table" role="presentation"><tbody>';
@@ -66,7 +66,7 @@ class CustomPostTypeFields {
         if (!isset($_POST[$this->metaBoxId . '_nonce'])) {
             return;
         }
-        if (!wp_verify_nonce($_POST[$this->metaBoxId . '_nonce'], basename(__FILE__))) {
+        if (!wp_verify_nonce($_POST[$this->metaBoxId . '_nonce'], 'save_' . $this->metaBoxId)) {
             return;
         }
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
@@ -78,7 +78,22 @@ class CustomPostTypeFields {
 
         foreach ($this->fields as $field) {
             if (isset($_POST[$field['id']])) {
-                update_post_meta($post_id, $field['id'], sanitize_text_field($_POST[$field['id']]));
+                $type  = isset($field['type']) ? $field['type'] : 'text';
+                $raw   = $_POST[$field['id']];
+
+                switch ($type) {
+                    case 'textarea':
+                        $value = sanitize_textarea_field($raw);
+                        break;
+                    case 'number':
+                        $value = is_numeric($raw) ? $raw + 0 : 0;
+                        break;
+                    default:
+                        $value = sanitize_text_field($raw);
+                        break;
+                }
+
+                update_post_meta($post_id, $field['id'], $value);
             }
         }
     }
