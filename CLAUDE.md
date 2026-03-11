@@ -43,8 +43,7 @@ alphalabs-utility-pack/
 │   │   ├── Customise.php            # Disables WordPress comments globally
 │   │   └── ExceptionHandler.php    # Fatal error/exception email notifications
 │   ├── FrontEnd/
-│   │   ├── Buttons.php             # GA4 event tracking for CTAs
-│   │   └── Cookies.php             # Delays CookieYes banner by 3 seconds
+│   │   └── Buttons.php             # GA4 event tracking for CTAs
 │   ├── Compatability/
 │   │   ├── Astra.php               # Astra theme compatibility (placeholder)
 │   │   └── GeneratePress.php       # GeneratePress + Spectra blocks fix
@@ -206,10 +205,6 @@ declare(strict_types=1);
 - Injects JavaScript in `wp_footer`
 - Automatically tracks: `tel:` links (phone_click), `mailto:` links (email_click), WhatsApp links (whatsapp_click), Calendly/Microsoft Meetings links (meeting_click)
 - Only fires if `gtag` is present on the page
-
-### `lib/FrontEnd/Cookies.php` — CookieYes Banner Delay
-- Delays CookieYes consent banner appearance by 3 seconds using a MutationObserver
-- Only activates when CookieYes plugin is installed
 
 ### `lib/Admin/Customise.php` — Remove Comments
 - Completely removes WordPress comments functionality site-wide
