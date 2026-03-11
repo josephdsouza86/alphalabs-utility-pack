@@ -25,8 +25,8 @@ class CustomPostType {
 
     private function setDefaultLabels($singular, $plural, $textdomain) {
         return array(
-            'name'                  => _x($plural, `{$singular} General Name`, $textdomain),
-            'singular_name'         => _x($singular, `{$singular} Singular Name`, $textdomain),
+            'name'                  => _x($plural, "{$singular} General Name", $textdomain),
+            'singular_name'         => _x($singular, "{$singular} Singular Name", $textdomain),
             'menu_name'             => __($plural, $textdomain),
             'name_admin_bar'        => __($singular, $textdomain),
             'archives'              => __($plural, $textdomain),

@@ -43,7 +43,7 @@ class ExceptionHandler {
 		register_shutdown_function( array( $this, 'handleShutdown' ) );
 
 		// Hook into WordPress recovery mode.
-		add_action( 'wp_php_error_message', array( $this, 'sendErrorNotification' ), 10, 1 );
+		add_filter( 'wp_php_error_message', array( $this, 'sendErrorNotification' ), 10, 2 );
 	}
 
 	/**
@@ -66,18 +66,23 @@ class ExceptionHandler {
 	}
 
 	/**
-	 * Send error notification via WordPress recovery mode hook
+	 * Send error notification via WordPress recovery mode filter.
 	 *
-	 * @param array $error Error details from WordPress.
+	 * Hooked to the wp_php_error_message filter which passes the human-readable
+	 * message string as $message and the raw error array as $error.
+	 * The unmodified $message must be returned so the recovery email is not broken.
 	 *
-	 * @return void
+	 * @param string $message Human-readable error message from WordPress.
+	 * @param array  $error   Raw error array (type, message, file, line).
+	 *
+	 * @return string Unmodified $message.
 	 */
-	public function sendErrorNotification( $error ) {
-		if ( empty( $error ) ) {
-			return;
+	public function sendErrorNotification( $message, $error ) {
+		if ( ! empty( $error ) ) {
+			$this->_sendFatalErrorNotification( $error );
 		}
 
-		$this->_sendFatalErrorNotification( $error );
+		return $message;
 	}
 
 	/**

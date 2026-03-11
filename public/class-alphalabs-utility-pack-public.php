@@ -52,8 +52,7 @@ class Alphalabs_Utility_Pack_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		new  \AlphaLabsUtilityPack\FrontEnd\Buttons();		
-		new  \AlphaLabsUtilityPack\FrontEnd\Cookies();
+		new  \AlphaLabsUtilityPack\FrontEnd\Buttons();
 	}
 
 	/**
